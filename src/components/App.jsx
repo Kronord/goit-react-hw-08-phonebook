@@ -6,6 +6,7 @@ import AppBar from './AppBar/AppBar';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
+
 const Contacts = lazy(() =>
   import('./Contacts/Contacts' /* webpackChunkName: 'Contacts' */)
 );
