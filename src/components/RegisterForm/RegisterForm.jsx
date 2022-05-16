@@ -16,7 +16,6 @@ const validationSchema = yup.object({
   password: yup.string('Enter your password').required('Password is required'),
 });
 
-
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -24,6 +23,7 @@ const RegisterForm = () => {
       email: '',
       password: '',
       name: '',
+      gender: 'female',
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
@@ -31,7 +31,7 @@ const RegisterForm = () => {
       actions.resetForm();
     },
   });
-
+console.log(formik.values);
   return (
     <Wrapper>
       <Title>
@@ -41,7 +41,7 @@ const RegisterForm = () => {
             fontSize: 70,
           }}
         />
-         Create Account
+        Create Account
       </Title>
       <form onSubmit={formik.handleSubmit}>
         <TextField

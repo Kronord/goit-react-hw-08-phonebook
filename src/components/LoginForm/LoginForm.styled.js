@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 
 export const Wrapper = styled.div`
   width: 400px;
-  height: 400px;
+  height: 450px;
   display: flex;
   margin: auto;
   flex-direction: column;

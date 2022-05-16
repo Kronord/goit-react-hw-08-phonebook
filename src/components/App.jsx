@@ -5,7 +5,8 @@ import * as authOperations from './Redux/Auth/auth-operations';
 import AppBar from './AppBar/AppBar';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contacts = lazy(() =>
   import('./Contacts/Contacts' /* webpackChunkName: 'Contacts' */)
@@ -22,32 +23,43 @@ const HomePage = lazy(() =>
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(state => state.auth.isFetchingCurrentUser);
+  const login = useSelector(state => state.auth.isLoggedIn);
+  console.log(login);
+  const isFetchingCurrentUser = useSelector(
+    state => state.auth.isFetchingCurrentUser
+  );
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
 
-  return !isFetchingCurrentUser && (
-    <Routes>
-      <Route path="/" element={<AppBar />}>
-        <Route
-          index
-          element={<PublicRoute component={<HomePage />} />}
-        />
-        <Route
-          path="/contacts"
-          element={<PrivateRoute component={<Contacts />} />}
-        />
-        <Route
-          path="/signIn"
-          element={<PublicRoute component={<LogIn />} restricted/>}
-        />
-        <Route
-          path="/signUp"
-          element={<PublicRoute component={<RegisterForm />} restricted/>}
-        />
-        <Route path="*" element={<Navigate to={'/'} />} />
-      </Route>
-    </Routes>
+  return (
+    !isFetchingCurrentUser && (
+      <div>
+        <Routes>
+          <Route path="/" element={<AppBar />}>
+            <Route index element={<PublicRoute component={<HomePage />} />} />
+            <Route
+              path="/contacts"
+              element={<PrivateRoute component={<Contacts />} />}
+            />
+            <Route
+              path="/signIn"
+              element={<PublicRoute component={<LogIn />} restricted />}
+            />
+            <Route
+              path="/signUp"
+              element={<PublicRoute component={<RegisterForm />} restricted />}
+            />
+            <Route
+              path="*"
+              element={
+                login ? <Navigate to={'/contacts'} /> : <Navigate to={'/'} />
+              }
+            />
+          </Route>
+        </Routes>
+        <ToastContainer />
+      </div>
+    )
   );
 };

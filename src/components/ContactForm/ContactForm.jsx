@@ -11,13 +11,12 @@ import {
   Input,
   SubmitButton,
   Title,
-  Image
+  Image,
 } from './ContactForm.styled';
 import Modal from '@mui/material/Modal';
 import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
 import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
-
 
 const style = {
   position: 'absolute',
@@ -127,9 +126,9 @@ export const ContactForm = () => {
               type="submit"
               color="primary"
               variant="contained"
-              disabled={loading === 'pending' ? true : false}
+              disabled={loading === 'adding' ? true : false}
             >
-              {loading === 'pending' ? (
+              {loading === 'adding' ? (
                 <SpinnerCircularSplit
                   size={25}
                   thickness={180}

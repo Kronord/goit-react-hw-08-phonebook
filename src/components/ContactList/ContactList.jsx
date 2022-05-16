@@ -14,10 +14,9 @@ const ContactList = () => {
 
   useEffect(() => {
     dispatch(contactsOperations.getContacts(''));
-  }, [dispatch])
+  }, [dispatch]);
 
-  
-  if (loading === 'succeeded' || loading === 'delete') { 
+  if (loading === 'succeeded' || loading === 'delete' || loading === 'adding') {
     const normalizedFilter = filterState.toLowerCase();
     const filterContacts = dataState.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
@@ -29,8 +28,8 @@ const ContactList = () => {
         ))}
       </List>
     );
-  };
-    
+  }
+
   if (loading === 'pending') {
     return (
       <Box>

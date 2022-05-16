@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
 
 export const Wrapper = styled.header`
   width: 100%;
@@ -10,19 +9,7 @@ export const Wrapper = styled.header`
   background-color: #4169E1;
 `;
 
-export const Link = styled(NavLink)`
-    text-decoration: none;
-    color: #fff;
-    font-size: 25px;
-    margin-right: 20px;
-`
-
-export const BorderLink = styled(NavLink)`
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 15px;
-  color: #fff;
-  font-size: 25px;
-  margin-right: 20px;
-  border: 2px solid #fff;
+export const Box = styled.div`
+  width: 100%;
+  margin-top: 200px;
 `;

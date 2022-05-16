@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import filterReducer from './Filter/slice';
-// import { contactsApi } from './Contacts/api';
 import {
   persistStore,
   persistReducer,
@@ -18,15 +17,13 @@ import contactsReducer from './Contacts/Contacts-slice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'isLoggedIn'],
 };
 
 export const store = configureStore({
   reducer: {
-    // [contactsApi.reducerPath]: contactsApi.reducer,
     contacts: contactsReducer,
     auth: persistReducer(persistConfig, authReducer),
-    // auth: authReducer,
     filter: filterReducer,
   },
   middleware: getDefaultMiddleware => [
@@ -35,11 +32,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    // contactsApi.middleware,
   ],
 });
 
 export const persistor = persistStore(store);
-
-
-

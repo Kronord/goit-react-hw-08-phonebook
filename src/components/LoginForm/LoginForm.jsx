@@ -7,16 +7,12 @@ import { useDispatch } from 'react-redux';
 import * as authOperations from '../Redux/Auth/auth-operations';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 
-
-
 const validationSchema = yup.object({
   email: yup
     .string('Enter your email')
     .email('Enter a valid email')
     .required('Email is required'),
-  password: yup
-    .string('Enter your password')
-    .required('Password is required'),
+  password: yup.string('Enter your password').required('Password is required'),
 });
 
 const LogIn = () => {

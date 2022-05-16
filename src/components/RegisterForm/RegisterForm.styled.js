@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 
 export const Wrapper = styled.div`
   width: 400px;
-  height: 450px;
+  height: 500px;
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 50px;
+ margin-top: 30px;
 `;
 
 export const Title = styled.h2`

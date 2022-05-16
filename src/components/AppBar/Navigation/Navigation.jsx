@@ -7,7 +7,11 @@ const Navigation = () => {
   return (
     <div>
       <Logolink to="/">My PhoneBook</Logolink>
-      {isLogged && <Link to="/contacts"><ContactsIcon /> Contacts</Link>}
+      {isLogged && (
+        <Link to="/contacts">
+          <ContactsIcon /> Contacts
+        </Link>
+      )}
     </div>
   );
 };

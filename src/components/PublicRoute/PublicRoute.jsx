@@ -9,4 +9,4 @@ export default function PublicRoute({
   const shouldRedirect = isLoggedin && restricted;
 
   return shouldRedirect ? <Navigate to={'/contacts'} /> : routerComponent;
-};
+}

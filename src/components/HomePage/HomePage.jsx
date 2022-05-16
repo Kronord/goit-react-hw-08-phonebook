@@ -1,4 +1,4 @@
-import { Wrapper, Image, Text } from "./HomePage.styled";
+import { Wrapper, Image, Text } from './HomePage.styled';
 
 export default function HomePage() {
   return (
