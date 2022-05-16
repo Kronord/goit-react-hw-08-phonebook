@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.10c639ec.css",
+    "main.js": "/static/js/main.d5a3871a.js",
+    "Contacts.js": "/static/js/Contacts.351c19ee.chunk.js",
+    "LogIn.js": "/static/js/LogIn.ba15a640.chunk.js",
+    "RegisterForm.js": "/static/js/RegisterForm.38c48f1b.chunk.js",
+    "HomePage.js": "/static/js/HomePage.efc69886.chunk.js",
+    "static/js/686.f1fa76b7.chunk.js": "/static/js/686.f1fa76b7.chunk.js",
+    "static/js/319.dbb73f98.chunk.js": "/static/js/319.dbb73f98.chunk.js",
+    "index.html": "/index.html",
+    "main.10c639ec.css.map": "/static/css/main.10c639ec.css.map",
+    "main.d5a3871a.js.map": "/static/js/main.d5a3871a.js.map",
+    "Contacts.351c19ee.chunk.js.map": "/static/js/Contacts.351c19ee.chunk.js.map",
+    "LogIn.ba15a640.chunk.js.map": "/static/js/LogIn.ba15a640.chunk.js.map",
+    "RegisterForm.38c48f1b.chunk.js.map": "/static/js/RegisterForm.38c48f1b.chunk.js.map",
+    "HomePage.efc69886.chunk.js.map": "/static/js/HomePage.efc69886.chunk.js.map",
+    "686.f1fa76b7.chunk.js.map": "/static/js/686.f1fa76b7.chunk.js.map",
+    "319.dbb73f98.chunk.js.map": "/static/js/319.dbb73f98.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10c639ec.css",
+    "static/js/main.d5a3871a.js"
+  ]
+}
