@@ -23,7 +23,6 @@ const RegisterForm = () => {
       email: '',
       password: '',
       name: '',
-      gender: 'female',
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
@@ -31,7 +30,6 @@ const RegisterForm = () => {
       actions.resetForm();
     },
   });
-console.log(formik.values);
   return (
     <Wrapper>
       <Title>

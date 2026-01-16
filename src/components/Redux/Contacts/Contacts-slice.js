@@ -27,7 +27,7 @@ const contactsSlice = createSlice({
     [contactsOperations.deleteContact.fulfilled](state, { payload }) {
       state.loading = 'succeeded';
       const indOfDeleteContact = state.entities.indexOf(
-        state.entities.find(contact => contact.id === payload)
+        state.entities.find(contact => contact._id === payload)
       );
       state.entities.splice(indOfDeleteContact, 1);
     },

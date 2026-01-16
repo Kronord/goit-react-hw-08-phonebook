@@ -23,9 +23,11 @@ const ContactList = () => {
     );
     return (
       <List>
-        {filterContacts.map(({ name, id, number }) => (
-          <ListItem key={id} name={name} number={number} id={id} />
-        ))}
+        {filterContacts.map(({ name, _id, phone }) => {
+          console.log(_id);
+          
+          return <ListItem key={_id} name={name} number={phone} id={_id} />
+        })}
       </List>
     );
   }

@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://curly-halibut-67vx99gw6q625wp-3020.app.github.dev/api';
 
-const errorNotify = () => toast.error(`Error, please try again`);
+const errorNotify = (error) => toast.error(error);
 
 const token = {
   set(token) {
@@ -17,17 +17,17 @@ const token = {
 
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
-    const { data } = await axios.post('/users/signup', credentials);
+    const { data } = await axios.post('/auth/users/signup', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
-    errorNotify();
+    errorNotify(error.response.data.message.details[0].message);
   }
 });
 
 const login = createAsyncThunk('auth/login', async credentials => {
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('/auth/users/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -35,9 +35,9 @@ const login = createAsyncThunk('auth/login', async credentials => {
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async id => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('auth/users/logout', id);
     token.unset();
   } catch (error) {
     errorNotify();
@@ -54,7 +54,9 @@ const getCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
 
   token.set(persistedToken);
   try {
-    const { data } = await axios.get('/users/current');
+    const { data } = await axios.get('/auth/users/current');
+    console.log(data);
+
     return data;
   } catch (error) {
     errorNotify();

@@ -24,14 +24,13 @@ const HomePage = lazy(() =>
 export const App = () => {
   const dispatch = useDispatch();
   const login = useSelector(state => state.auth.isLoggedIn);
-  console.log(login);
   const isFetchingCurrentUser = useSelector(
     state => state.auth.isFetchingCurrentUser
   );
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
-
+  
   return (
     !isFetchingCurrentUser && (
       <div>

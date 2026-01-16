@@ -5,7 +5,9 @@ import { FcBusinessman } from 'react-icons/fc';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const name = useSelector(store => store.auth.user.name);
+  const user = useSelector(store => store.auth.user);
+  const {name, _id} = user;
+  
   return (
     <Wrapper>
         <FcBusinessman
@@ -17,7 +19,7 @@ const UserMenu = () => {
       <h3>Welcome {name}</h3>
       <StyledButton
         variant="contained"
-        onClick={() => dispatch(authOperations.logOut())}
+        onClick={() => dispatch(authOperations.logOut({_id}))}
       >
         Log Out
       </StyledButton>
